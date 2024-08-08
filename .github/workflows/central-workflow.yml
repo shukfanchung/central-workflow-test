@@ -1,0 +1,17 @@
+# .github/workflows/central-workflow.yml
+name: Central Workflow
+on:
+  workflow_call: # allows the workflow to be invoked from other workflows in different repositories
+    inputs:
+      example_input:
+        description: 'An example input'
+        required: true
+        type: string
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run script
+        run: echo "Running central workflow with input ${{ inputs.example_input }}"
